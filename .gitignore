@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.DS_Store
+.ipynb_checkpoints/
+
+# Generated research outputs
+outputs/
+plots/*.png
+reports/*.csv
+reports/*.html
+
+# Local data cache
+data/*.csv
+data/*.parquet
