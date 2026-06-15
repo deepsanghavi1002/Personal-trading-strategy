@@ -1,0 +1,55 @@
+project:
+  name: Personal Trading Strategy Research
+  output_dir: outputs
+
+data:
+  start: '2010-01-01'
+  end: null
+  target: AGQ
+  benchmark: AGQ
+  universe:
+    - AGQ   # 2x silver ETF
+    - UGL   # 2x gold ETF
+    - GDX   # gold miners
+    - SIL   # silver miners
+    - GLD   # gold ETF
+    - SLV   # silver ETF
+    - TLT   # long treasury proxy
+    - UUP   # US dollar proxy
+
+features:
+  trend_window: 200
+  fast_exit_window: 50
+  momentum_window: 63
+  volatility_window: 20
+  annualization: 252
+
+pca:
+  enabled: true
+  window: 252
+  min_periods: 200
+  positive_tickers:
+    - AGQ
+    - UGL
+    - GDX
+    - SIL
+    - GLD
+    - SLV
+
+strategy:
+  initial_capital: 100000
+  transaction_cost_bps: 5
+  target_volatility: 0.15
+  max_leverage: 1.0
+  momentum_entry: 1.5
+  momentum_exit: 0.5
+  use_volatility_targeting: true
+
+walk_forward:
+  enabled: true
+  train_years: 3
+  test_months: 6
+
+statistics:
+  bootstrap_iterations: 1000
+  random_seed: 42
